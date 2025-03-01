@@ -116,6 +116,9 @@ button{
     color: rgb(176, 176, 176);
     overflow-y: auto;
 }
+.btn-gap{
+    padding: 5px;
+}
 nav li{
     color: rgb(176, 176, 176);
 }

@@ -36,7 +36,7 @@ function afficherItems(conteneurMain){
             : ``}
             </tbody>
         </table>
-        <button id="btn-add-weapon"> Ajouter un Weapon </button>
+        <button id="btn-add-weapon" class="btn-gap">Ajouter un Weapon</button>
     </div>
     `;
 
@@ -85,7 +85,10 @@ function afficherItems(conteneurMain){
             <input type="text" name="dmg" id="dmg" required>
             <label for="rpm">RPM:</label>
             <input type="text" name="rpm" id="rpm" required>
-            <button>Ajout</button>
+            <div class="f-box f-main-right">
+                <button type="submit" class="btn-gap">Add</button>
+                <button type="button" id="btn-cancel" class="btn-gap">Cancel</button>
+            </div>
             </form>
             
         </div>
@@ -94,7 +97,7 @@ function afficherItems(conteneurMain){
         let lastID = Weapons[Weapons.length - 1].id;
         let newItemId = lastID + 1;
 
-        document.getElementById("form-edit").addEventListener('submit', (e) => {
+        document.getElementById("form-ajout").addEventListener('submit', (e) => {
             e.preventDefault();
             let wType = document.getElementsByName('wType')[0].value;
             let name = document.getElementsByName('name')[0].value;
@@ -105,6 +108,10 @@ function afficherItems(conteneurMain){
             //console.log(`wtype: ${wType}\ndesc: ${name}\npoids: ${aType}\nprops: ${dmg}`);
 
             ajouterWeapon(newItemId, wType, name, aType, dmg, rpm);
+        });
+
+        document.getElementById("btn-cancel").addEventListener('click', () => {
+            afficherItems(document.getElementById("site-main-content"));
         });
     }
 
@@ -127,8 +134,13 @@ function afficherItems(conteneurMain){
             <input type="text" name="dmg" id="dmg" value='${Weapons[id - 1].damage}' required>
             <label for="rpm">RPM:</label>
             <input type="text" name="rpm" id="rpm" value='${Weapons[id - 1].rpm}' required>
-            <button>Edit</button>
+            <div class="f-box f-main-right">
+                <button class="btn-gap">Edit</button>
+                <button type="button" id="btn-cancel" class="btn-gap">Cancel</button>
+            </div>
+            
             </form>
+            
             
         </div>
         `;
@@ -154,6 +166,10 @@ function afficherItems(conteneurMain){
 
             afficherItems(document.getElementById("site-main-content"));
 
+        });
+
+        document.getElementById("btn-cancel").addEventListener('click', () => {
+            afficherItems(document.getElementById("site-main-content"));
         });
     }
 
