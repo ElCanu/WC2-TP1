@@ -47,7 +47,7 @@ tr,td,th{
     height: 50px;
 }
 button{
-    
+    /*color: rgb(176, 176, 176);*/
     background-color:transparent;
     border: none;
     cursor: pointer
