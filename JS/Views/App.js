@@ -6,14 +6,14 @@ function afficherItems(conteneurMain){
     `
     <div id="div-main" class="f-box bullseye f-col">
         <div id="app" class="carre f-box f-col bullseye animated-scale-div">
-            <table>
+            <table id="table-weapon">
                 <thead>
                     <tr> 
                         ${Weapons.length > 0 ? `
                             ${Object.keys(Weapons[0]).map(prop => `
-                                <th>${prop}</th>
+                                <th class="sortable">${prop}<span class="sort-indicator">▼</span></th>
                             `).join('')}
-                            <th>Actions</th>
+                            <th>Actions<span class="sort-indicator"></span></th>
                         `
                         : `<p>Tableau Vide...</p>`
                         }
@@ -41,6 +41,51 @@ function afficherItems(conteneurMain){
         </div>
     </div>
     `;
+
+    const sortableHeaders = document.querySelectorAll('#table-weapon th.sortable');
+            sortableHeaders.forEach(header => {
+                addEventForHeaderSort(header);
+            });
+
+    /** @param {HTMLElement|null} header */
+    function addEventForHeaderSort(header)
+    {
+        header.addEventListener('click', () => {
+            const key = header.dataset.key;
+            let order = header.dataset.order === 'asc' ? 'desc' : 'asc';
+            header.dataset.order = order;
+            
+            const table = document.getElementById('table-weapon');
+            const tbody = table.tBodies[0];
+            const headers = Array.from(header.parentElement.children);
+            for(i = 0, taille = headers.length - 1; i < taille; i++){ //fix erreur de la foreach(skip le dernier header.)
+                let th = headers[i];
+                th.querySelector('.sort-indicator').style = "color:rgb(176, 176, 176)";
+            }
+            //headers.forEach(th => th.querySelector('.sort-indicator').style = "color:black");
+            header.querySelector('.sort-indicator').style = "color:rgb(0, 255, 64)";
+            header.querySelector('.sort-indicator').textContent = order === 'asc' ? '▲' : '▼';
+            
+            const columnIndex = headers.indexOf(header);
+            const lignes = Array.from(tbody.rows);
+            lignes.sort((a, b) => {
+                let aText = a.cells[columnIndex].textContent.trim();
+                let bText = b.cells[columnIndex].textContent.trim();
+
+                const aNum = parseFloat(aText);
+                const bNum = parseFloat(bText);
+                if (!isNaN(aNum) && !isNaN(bNum)) {
+                    return order === 'asc' ? aNum - bNum : bNum - aNum;
+                }
+
+                return order === 'asc'
+                    ? aText.localeCompare(bText)
+                    : bText.localeCompare(aText);
+            });
+
+            lignes.forEach(ligne => tbody.appendChild(ligne));
+        });
+    }
 
     Weapons.forEach((weapon, index) => {
         let weapId = weapon.id;
@@ -93,7 +138,6 @@ function afficherItems(conteneurMain){
                     <button type="button" id="btn-cancel" class="btn-gap">Cancel</button>
                 </div>
                 </form>
-
             </div>
         </div>
         `;

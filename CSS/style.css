@@ -171,6 +171,9 @@ div > div + div{
 img{
     margin-right: 10px;
 }
+span{
+    font-size: 12px;
+}
 #imgMoi{
     
     margin-top: 20px;
