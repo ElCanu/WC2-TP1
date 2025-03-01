@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Iceland&family=Racing+Sans+One&display=swap');
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100vh;
+    max-width: 1920px;
+    background-image: url('../Images/1.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.iceland-regular {
+    font-family: "Iceland", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+header{
+    height: 8%;
+}
+main{
+    height: 84%;
+    font-size: 20px;
+    min-height: 400px;
+
+}
+footer{
+    height: 8%;
+}
+a{
+    text-decoration: none;
+    color:white;
+}
+ul{
+    list-style: none;
+    gap: 20px;
+}
+table,tr,td,th{
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+tr,td,th{
+    text-align: center;
+    width: 300px;
+    height: 50px;
+}
+button{
+    
+    background-color:transparent;
+    border: none;
+    cursor: pointer
+}
+
+
+.item-menu{
+    padding-left: 20px;
+    background-color: rgb(28, 38, 34);
+    border-bottom: 2px solid rgb(0, 255, 64);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 30px;
+    font-weight: bold;   
+}
+.nav-element{
+    cursor: pointer;
+}
+.user-menu{
+    padding-right: 20px;
+}
+.f-box{
+    display: flex;
+}
+.bullseye{
+    justify-content: center;
+    align-items: center;
+}
+.f-col{
+    flex-direction: column;
+}
+.f-column-rev{
+    flex-direction: column-reverse;
+}
+.f-row{
+    flex-direction: row;
+}
+.f-main-center{
+    justify-content: center;
+}
+.f-justify-content{
+    justify-content:flex-start;
+    align-items: flex-end;
+}
+.f-cross-center{
+    align-items: center;
+}
+.f-between{
+    justify-content: space-between;
+}
+.f-evenly{
+    justify-content: space-evenly;
+}
+.f-main-right{
+    justify-content: right;
+}
+.carre{
+    
+    padding: 22px;
+    background-color: rgba(28, 38, 34, 0.9);
+    box-shadow:5px 5px 10px rgba(0, 0, 0, 0.3);
+    width: 55vw;
+    height: 55vh;
+    min-height: 200px;
+    border: solid rgba(0, 255, 64, 0.9) 2px;
+    color: rgb(176, 176, 176);
+    overflow-y: auto;
+}
+nav li{
+    color: rgb(176, 176, 176);
+}
+nav li:hover {
+    color: rgb(0, 255, 64);
+    text-shadow: 0 0 5px rgb(0, 255, 64);
+}
+button:active{
+    position:relative;
+	top:1px;
+}
+button:hover{
+    scale: 1.2;
+}
+/*
+nav li:active {
+    color: rgb(255, 127, 0);
+}
+*/
+p + p{
+    padding-top: 5px;
+}
+h2 + p{
+    padding-top: 10px;
+}
+div > div + div{
+    padding-top: 30px;
+}
+img{
+    margin-right: 10px;
+}
+#imgMoi{
+    
+    margin-top: 20px;
+    box-shadow:4px 4px 50px rgba(0, 255, 64, 0.2);
+    opacity: 90%;
+}
+.animated-scale{
+    
+    transition: transform 0.2s ease-in-out;
+}
+.animated-scale:hover{
+    transform: scale(1.1);
+}
+.animated-scale-div{
+    
+    transition: transform 0.2s ease-in-out;
+}
+.animated-scale-div:hover{
+    transform: scale(1.02);
+}
+
