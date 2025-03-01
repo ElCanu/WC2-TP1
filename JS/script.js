@@ -12,7 +12,7 @@
             case 4: mainContent.innerHTML = pageContact; break;
             case 5: afficherItems(mainContent); break;
             case 6: mainContent.innerHTML = pageProfile; break;
-            case 7: mainContent.innerHTML = pageLogin; break;
+            case 7: afficherLogin(mainContent); break;
             default: console.log("Page introuvable");
         }
     }
