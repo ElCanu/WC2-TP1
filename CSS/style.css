@@ -18,16 +18,19 @@ body{
     font-style: normal;
   }
 header{
-    height: 8%;
+    /* height: 8%; */
+    height: 59px;
 }
 main{
-    height: 84%;
+    /* height: 84%; */
     font-size: 20px;
     min-height: 400px;
-
+    height: calc(100vh - 59px - 59px);
+   
 }
 footer{
-    height: 8%;
+    /* height: 8%; */
+    height: 59px;
 }
 a{
     text-decoration: none;
@@ -61,7 +64,14 @@ button{
     padding-top: 10px;
     padding-bottom: 10px;
     font-size: 30px;
-    font-weight: bold;   
+    font-weight: bold;
+}
+.div-foot{
+    
+    height: 100%;
+    width: 100%;
+    /* background-color: rgb(28, 38, 34); */
+    /* border-top: 2px solid rgb(0, 255, 64); */
 }
 .nav-element{
     cursor: pointer;
