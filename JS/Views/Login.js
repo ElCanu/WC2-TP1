@@ -13,7 +13,7 @@ function afficherLogin(conteneurMain){
             <label for="password" class="form-label">Password:</label>
             <input type="password" id="password" name="password" class="form-input">
             <div class="f-box f-main-right">
-                <button type="submit" class="btn-submit">Login</button>
+                <button type="submit" class="btn-submit btn-gap">Login</button>
             </div>
             </form>
         </div>

@@ -92,6 +92,9 @@ button{
     justify-content:flex-start;
     align-items: flex-end;
 }
+.f-cross-left{
+    align-items: start;
+}
 .f-cross-center{
     align-items: center;
 }
@@ -109,6 +112,9 @@ button{
 }
 .f-main-left{
     justify-content: left;
+}
+.f-self-end{
+    align-self: flex-end;
 }
 .div-main{
     top: 50%;

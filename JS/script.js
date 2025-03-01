@@ -9,9 +9,9 @@
             initEventPourHome();
             break;
             case 3: mainContent.innerHTML = pageApropos; break;
-            case 4: mainContent.innerHTML = pageContact; break;
+            case 4: afficherContact(mainContent); break;
             case 5: afficherItems(mainContent); break;
-            case 6: mainContent.innerHTML = pageProfile; break;
+            case 6: afficherProfile(mainContent); break;
             case 7: afficherLogin(mainContent); break;
             default: console.log("Page introuvable");
         }
