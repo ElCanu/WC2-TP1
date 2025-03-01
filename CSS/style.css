@@ -79,7 +79,7 @@ button{
 .f-col{
     flex-direction: column;
 }
-.f-column-rev{
+.f-col-rev{
     flex-direction: column-reverse;
 }
 .f-row{
@@ -95,6 +95,9 @@ button{
 .f-cross-center{
     align-items: center;
 }
+.f-cross-right{
+    align-items: end;
+}
 .f-between{
     justify-content: space-between;
 }
@@ -104,9 +107,16 @@ button{
 .f-main-right{
     justify-content: right;
 }
+.f-main-left{
+    justify-content: left;
+}
 .div-main{
     top: 50%;
     left: 50%;
+}
+.div-lp{
+    padding-right: 20px;
+    /* margin-right: 20px; */
 }
 .carre{
     
@@ -173,6 +183,6 @@ img{
     transition: transform 0.2s ease-in-out;
 }
 .animated-scale-div:hover{
-    transform: scale(1.02);
+    transform: scale(1.01);
 }
 
