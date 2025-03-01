@@ -1,28 +1,21 @@
 function afficherLogin(conteneurMain){
     user = users.find(u => u.isAuthenticated === true)
     //console.log(user)
-    if (user == null)
+    if (!user)
     {
-        conteneurMain.innerHTML =
-    `
-    <h2>Login</h2>
-    <form id="form-login">
-    <label for="username" class="form-label">Username:</label>
-    <input type="text" id="username" name="username" class="form-input" required>
-    <label for="password" class="form-label">Password:</label>
-    <input type="password" id="password" name="password" class="form-input">
-    <button type="submit" class="btn-submit">Login</button>
-    </form>
-
-    `;
-    }
-    else{
-        document.querySelector("#nav-login").textContent = "Login";
-        document.querySelector("#nav-profil").textContent = "";
-        user.isAuthenticated = false;
-    }
-
-    if (user == null){
+            conteneurMain.innerHTML =
+        `
+        <h2>Login</h2>
+        <form id="form-login">
+        <label for="username" class="form-label">Username:</label>
+        <input type="text" id="username" name="username" class="form-input" required>
+        <label for="password" class="form-label">Password:</label>
+        <input type="password" id="password" name="password" class="form-input">
+        <button type="submit" class="btn-submit">Login</button>
+        </form>
+        
+        `;
+        
         document.getElementById("form-login").addEventListener('submit', (e) => {
             e.preventDefault();
                 
@@ -43,6 +36,12 @@ function afficherLogin(conteneurMain){
             }
             //console.log(user)
         });
+
+    }
+    else{
+        document.querySelector("#nav-login").textContent = "Login";
+        document.querySelector("#nav-profil").textContent = "";
+        user.isAuthenticated = false;
     }
 };
 
