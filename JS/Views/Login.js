@@ -13,15 +13,15 @@ function afficherLogin(conteneurMain){
         <input type="password" id="password" name="password" class="form-input">
         <button type="submit" class="btn-submit">Login</button>
         </form>
-        
+
         `;
-        
+
         document.getElementById("form-login").addEventListener('submit', (e) => {
             e.preventDefault();
-                
+
             let username = document.getElementsByName('username')[0].value;
             let password = document.getElementsByName('password')[0].value;
-            
+
             //console.log(username);
             //console.log(password);
         
@@ -32,7 +32,10 @@ function afficherLogin(conteneurMain){
                 user.isAuthenticated = true;
             }
             else{
-                console.log("Wrong user name or password...")
+                alert("L'utilisateur ou mot de passe est incorrect.")
+                //console.log("Wrong user name or password...")
+                document.getElementsByName('username')[0].value = "";
+                document.getElementsByName('password')[0].value = "";
             }
             //console.log(user)
         });
