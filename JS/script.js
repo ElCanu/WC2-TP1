@@ -6,11 +6,10 @@
         let mainContent = document.getElementById("site-main-content");
         switch(elemValue){
             case 2: mainContent.innerHTML = pageHome; 
-            //initEventPourHome()
+            initEventPourHome();
             break;
             case 3: mainContent.innerHTML = pageApropos; break;
             case 4: mainContent.innerHTML = pageContact; break;
-            //case 5: mainContent.innerHTML = pageApp; break;
             case 5: afficherItems(mainContent); break;
             default: console.log("Page introuvable");
         }
@@ -18,11 +17,24 @@
 
     function initialiserEventListeners(){
         console.log("Initialisation des events listener")
+        initEventPourHome();
         document.querySelectorAll(".nav-element").forEach(elem => {
             elem.addEventListener("click", () => {
                 console.log(elem);
                 naviguer(elem.value);
             });
+        });
+    }
+    
+    //test changer text sur page home pour future login
+    function initEventPourHome(){
+    
+        document.querySelector("#btn").addEventListener("click", function() {
+            document.querySelector("#message").textContent = "bonjour!";
+        });
+    
+        document.querySelector("#btn2").addEventListener("click", function() {
+            document.querySelector("#message2").textContent = "bonjour2!";
         });
     }
     
