@@ -1,6 +1,7 @@
 let pageApropos = 
 `
-<div class="carre f-box f-col animated-scale-div">
+<div id="div-main" class="f-box bullseye f-col">
+    <div class="carre f-box f-col animated-scale-div">
         <div>
             <h2>À propos de l'application</h2>
             <p>Cette application a été conçue pour afficher en temps réel les armes disponibles dans un jeu, permettant ainsi aux développeurs et aux joueurs d'effectuer un suivi précis de leurs caractéristiques. Grâce à une gestion dynamique des données, elle offre la possibilité de modifier les statistiques des armes sans nécessiter de rafraîchissement de la page, rendant ainsi le processus de balancing plus fluide et efficace.</p>
@@ -16,4 +17,5 @@ let pageApropos =
             </div>
         </div>
     </div>
+</div>
 `;

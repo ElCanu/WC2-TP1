@@ -4,39 +4,41 @@
 function afficherItems(conteneurMain){
     conteneurMain.innerHTML = 
     `
-    <div id="app" class="carre f-box f-col bullseye animated-scale-div">
-        <table>
-            <thead>
-                <tr> 
-                    ${Weapons.length > 0 ? `
-                        ${Object.keys(Weapons[0]).map(prop => `
-                            <th>${prop}</th>
+    <div id="div-main" class="f-box bullseye f-col">
+        <div id="app" class="carre f-box f-col bullseye animated-scale-div">
+            <table>
+                <thead>
+                    <tr> 
+                        ${Weapons.length > 0 ? `
+                            ${Object.keys(Weapons[0]).map(prop => `
+                                <th>${prop}</th>
+                            `).join('')}
+                            <th>Actions</th>
+                        `
+                        : `<p>Tableau Vide...</p>`
+                        }
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                ${Weapons.length > 0 ? `
+                ${Weapons.map(weapon => `
+                    <tr>
+                        ${Object.entries(weapon).map(([key, val]) => `
+                        <td data-key=${key} data-val=${val}>${val}</td>
                         `).join('')}
-                        <th>Actions</th>
-                    `
-                    : `<p>Tableau Vide...</p>`
-                    }
-                    
-                </tr>
-            </thead>
-            <tbody>
-            ${Weapons.length > 0 ? `
-            ${Weapons.map(weapon => `
-                <tr>
-                    ${Object.entries(weapon).map(([key, val]) => `
-                    <td data-key=${key} data-val=${val}>${val}</td>
-                    `).join('')}
-                    <td>
-                    <button id="edit-${weapon.id}">🖍️</button>
-                    <button id="del-${weapon.id}">❎️</button>
-                    </td>
-                </tr>
-            `).join('')}
-            `
-            : ``}
-            </tbody>
-        </table>
-        <button id="btn-add-weapon" class="btn-gap">Ajouter un Weapon</button>
+                        <td>
+                        <button id="edit-${weapon.id}">🖍️</button>
+                        <button id="del-${weapon.id}">❎️</button>
+                        </td>
+                    </tr>
+                `).join('')}
+                `
+                : ``}
+                </tbody>
+            </table>
+            <button id="btn-add-weapon" class="btn-gap">Ajouter un Weapon</button>
+        </div>
     </div>
     `;
 
@@ -72,25 +74,27 @@ function afficherItems(conteneurMain){
     function afficherFormAjout(conteneurMain, id = null){
         conteneurMain.innerHTML = 
         `
-        <div class="carre f-box f-col bullseye animated-scale-div">
-            <form id="form-ajout" class="f-box f-col">
-            <legend>Ajout Arme:</legend>
-            <label for="wType">Classe:</label>
-            <input type="text" name="wType" id="wType" required>
-            <label for="name">Nom:</label>
-            <input type="text" name="name" id="name" required>
-            <label for="aType">Ammo Type:</label>
-            <input type="text" name="aType" id="aType" required>
-            <label for="dmg">Damage:</label>
-            <input type="text" name="dmg" id="dmg" required>
-            <label for="rpm">RPM:</label>
-            <input type="text" name="rpm" id="rpm" required>
-            <div class="f-box f-main-right">
-                <button type="submit" class="btn-gap">Add</button>
-                <button type="button" id="btn-cancel" class="btn-gap">Cancel</button>
+        <div id="div-main" class="f-box bullseye f-col">
+            <div class="carre f-box f-col bullseye animated-scale-div">
+                <form id="form-ajout" class="f-box f-col">
+                <legend>Ajout Arme:</legend>
+                <label for="wType">Classe:</label>
+                <input type="text" name="wType" id="wType" required>
+                <label for="name">Nom:</label>
+                <input type="text" name="name" id="name" required>
+                <label for="aType">Ammo Type:</label>
+                <input type="text" name="aType" id="aType" required>
+                <label for="dmg">Damage:</label>
+                <input type="text" name="dmg" id="dmg" required>
+                <label for="rpm">RPM:</label>
+                <input type="text" name="rpm" id="rpm" required>
+                <div class="f-box f-main-right">
+                    <button type="submit" class="btn-gap">Add</button>
+                    <button type="button" id="btn-cancel" class="btn-gap">Cancel</button>
+                </div>
+                </form>
+
             </div>
-            </form>
-            
         </div>
         `;
 
@@ -121,27 +125,26 @@ function afficherItems(conteneurMain){
     function afficherFormEdit(conteneurMain, id = null){
         conteneurMain.innerHTML = 
         `
-        <div class="carre f-box f-col bullseye animated-scale-div">
-            <form id="form-edit" class="f-box f-col">
-            <legend>Ajout Arme:</legend>
-            <label for="wType">Classe:</label>
-            <input type="text" name="wType" id="wType" value='${Weapons[id - 1].wType}' required>
-            <label for="wName">Nom:</label>
-            <input type="text" name="wName" id="wName" value='${Weapons[id - 1].wName}' required>
-            <label for="aType">Ammo Type:</label>
-            <input type="text" name="aType" id="aType" value='${Weapons[id - 1].aType}' required>
-            <label for="dmg">Damage:</label>
-            <input type="text" name="dmg" id="dmg" value='${Weapons[id - 1].damage}' required>
-            <label for="rpm">RPM:</label>
-            <input type="text" name="rpm" id="rpm" value='${Weapons[id - 1].rpm}' required>
-            <div class="f-box f-main-right">
-                <button class="btn-gap">Edit</button>
-                <button type="button" id="btn-cancel" class="btn-gap">Cancel</button>
+        <div id="div-main" class="f-box bullseye f-col">
+            <div class="carre f-box f-col bullseye animated-scale-div">
+                <form id="form-edit" class="f-box f-col">
+                <legend>Ajout Arme:</legend>
+                <label for="wType">Classe:</label>
+                <input type="text" name="wType" id="wType" value='${Weapons[id - 1].wType}' required>
+                <label for="wName">Nom:</label>
+                <input type="text" name="wName" id="wName" value='${Weapons[id - 1].wName}' required>
+                <label for="aType">Ammo Type:</label>
+                <input type="text" name="aType" id="aType" value='${Weapons[id - 1].aType}' required>
+                <label for="dmg">Damage:</label>
+                <input type="text" name="dmg" id="dmg" value='${Weapons[id - 1].damage}' required>
+                <label for="rpm">RPM:</label>
+                <input type="text" name="rpm" id="rpm" value='${Weapons[id - 1].rpm}' required>
+                <div class="f-box f-main-right">
+                    <button class="btn-gap">Edit</button>
+                    <button type="button" id="btn-cancel" class="btn-gap">Cancel</button>
+                </div>
+                </form>
             </div>
-            
-            </form>
-            
-            
         </div>
         `;
 
