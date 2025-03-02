@@ -16,7 +16,7 @@ function afficherItems(conteneurMain){
             : ``
             }
             </select>
-
+            <input type="text" id="filter-value">
             <table id="table-weapon">
                 <thead>
                     <tr> 
@@ -52,6 +52,28 @@ function afficherItems(conteneurMain){
         </div>
     </div>
     `;
+
+    
+    addEventForFilterInput();
+    
+    function addEventForFilterInput() {
+        const input = document.getElementById('filter-value');
+        const select = document.getElementById('filter-prop');
+    
+        input.addEventListener('input', () => {
+            const selectedProp = select.value;
+            const filterValue = input.value.trim().toLowerCase();
+    
+            const tbody = document.querySelector('#table-weapon tbody');
+            const lignes = Array.from(tbody.rows);
+    
+            lignes.forEach(ligne => {
+                const td = ligne.querySelector(`td[data-key="${selectedProp}"]`);
+                const showTR = td && td.textContent.trim().toLowerCase().includes(filterValue);
+                ligne.style.display = showTR ? '' : 'none';
+            });
+        });
+    }
 
     const sortableHeaders = document.querySelectorAll('#table-weapon th.sortable');
             sortableHeaders.forEach(header => {
@@ -229,6 +251,6 @@ function afficherItems(conteneurMain){
         document.getElementById("btn-cancel").addEventListener('click', () => {
             afficherItems(document.getElementById("site-main-content"));
         });
-    }
+    };
 
-};
+}
