@@ -187,8 +187,12 @@ function afficherItems(conteneurMain){
             </div>
         </div>
         `;
-
-        let lastID = Weapons[Weapons.length - 1].id;
+        //console.log(`Weapons.length = ${Weapons.length}`)
+        let lastID = 0;
+        if (Weapons.length > 0){
+            lastID = Weapons[Weapons.length - 1].id;  
+        }
+        //console.log(`LastID = ${lastID}`)
         let newItemId = lastID + 1;
 
         document.getElementById("form-ajout").addEventListener('submit', (e) => {
