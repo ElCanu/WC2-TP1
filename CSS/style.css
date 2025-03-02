@@ -55,7 +55,9 @@ button{
     border: none;
     cursor: pointer
 }
-
+textarea{
+    width: 100%;
+}
 
 .item-menu{
     padding-left: 20px;

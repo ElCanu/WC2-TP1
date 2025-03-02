@@ -145,11 +145,7 @@ function afficherItems(conteneurMain){
             afficherFormEdit(conteneurMain, weapId);
         });
     });
-
-
-
     
-
     document.getElementById("btn-add-weapon").addEventListener("click", () => {
         afficherFormAjout(conteneurMain);
     });
