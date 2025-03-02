@@ -145,13 +145,15 @@ function afficherItems(conteneurMain){
             afficherFormEdit(conteneurMain, weapId);
         });
     });
-    
+
     document.getElementById("btn-add-weapon").addEventListener("click", () => {
         afficherFormAjout(conteneurMain);
     });
 
     function ajouterWeapon(id, wType, wName, aType, damage, rpm){
-        Weapons.push({id: id, wType: wType, wName: wName, aType: aType, damage: damage, rpm: rpm});
+        // Weapons.push({id: id, wType: wType, wName: wName, aType: aType, damage: damage, rpm: rpm});
+        let weapon = new Weapon(id, wType, wName, aType, damage, rpm);
+        Weapons.push(weapon);
         afficherItems(document.getElementById("site-main-content"));
     }
 
