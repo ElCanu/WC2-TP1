@@ -50,6 +50,8 @@ function afficherLogin(conteneurMain){
         document.querySelector("#nav-login").textContent = "Login";
         document.querySelector("#nav-profil").textContent = "";
         user.isAuthenticated = false;
+        let mainContent = document.getElementById("site-main-content");
+        mainContent.innerHTML = pageHome;
     }
 };
 

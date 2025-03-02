@@ -5,6 +5,7 @@
     function naviguer(elemValue){
         let mainContent = document.getElementById("site-main-content");
         switch(elemValue){
+            case 1: console.log("click, click"); break;
             case 2: mainContent.innerHTML = pageHome; 
             //initEventPourHome();
             break;
