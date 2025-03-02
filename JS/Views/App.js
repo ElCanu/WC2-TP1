@@ -6,17 +6,19 @@ function afficherItems(conteneurMain){
     `
     <div id="div-main" class="f-box bullseye f-col">
         <div id="app" class="carre f-box f-col bullseye animated-scale-div">
-            <label for="filter-prop">Filtrer par:</label>
-            <select name="filter-prop" id="filter-prop">
-            ${Weapons.length > 0 ? `
-                ${Object.keys(Weapons[0]).map(prop => `
-                    <option value="${prop}">${prop}</option>
-                `).join('')}
-            `
-            : ``
-            }
-            </select>
-            <input type="text" id="filter-value">
+            <div class="btn-gap">
+                <label for="filter-prop">Filtrer par:</label>
+                <select name="filter-prop" id="filter-prop">
+                ${Weapons.length > 0 ? `
+                    ${Object.keys(Weapons[0]).map(prop => `
+                        <option value="${prop}">${prop}</option>
+                    `).join('')}
+                `
+                : ``
+                }
+                </select>
+                <input type="text" id="filter-value">
+            </div>
             <table id="table-weapon">
                 <thead>
                     <tr> 
@@ -53,7 +55,6 @@ function afficherItems(conteneurMain){
     </div>
     `;
 
-    
     addEventForFilterInput();
     
     function addEventForFilterInput() {
@@ -141,8 +142,8 @@ function afficherItems(conteneurMain){
         afficherFormAjout(conteneurMain);
     });
 
-    function ajouterWeapon(id, wType, name, aType, damage, rpm){
-        Weapons.push({id: id, wType: wType, name: name, aType: aType, damage: damage, rpm: rpm});
+    function ajouterWeapon(id, wType, wName, aType, damage, rpm){
+        Weapons.push({id: id, wType: wType, wName: wName, aType: aType, damage: damage, rpm: rpm});
         afficherItems(document.getElementById("site-main-content"));
     }
 
@@ -158,8 +159,8 @@ function afficherItems(conteneurMain){
                 <legend>Ajout Arme:</legend>
                 <label for="wType">Classe:</label>
                 <input type="text" name="wType" id="wType" required>
-                <label for="name">Nom:</label>
-                <input type="text" name="name" id="name" required>
+                <label for="wName">Nom:</label>
+                <input type="text" name="wName" id="wName" required>
                 <label for="aType">Ammo Type:</label>
                 <input type="text" name="aType" id="aType" required>
                 <label for="dmg">Damage:</label>
@@ -181,14 +182,14 @@ function afficherItems(conteneurMain){
         document.getElementById("form-ajout").addEventListener('submit', (e) => {
             e.preventDefault();
             let wType = document.getElementsByName('wType')[0].value;
-            let name = document.getElementsByName('name')[0].value;
+            let wName = document.getElementsByName('wName')[0].value;
             let aType = document.getElementsByName('aType')[0].value;
             let dmg = document.getElementsByName('dmg')[0].value;
             let rpm = document.getElementsByName('rpm')[0].value;
 
             //console.log(`wtype: ${wType}\ndesc: ${name}\npoids: ${aType}\nprops: ${dmg}`);
 
-            ajouterWeapon(newItemId, wType, name, aType, dmg, rpm);
+            ajouterWeapon(newItemId, wType, wName, aType, dmg, rpm);
         });
 
         document.getElementById("btn-cancel").addEventListener('click', () => {
