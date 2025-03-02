@@ -7,6 +7,7 @@ function afficherItems(conteneurMain){
     <div id="div-main" class="f-box bullseye f-col">
         <div id="app" class="carre f-box f-col bullseye animated-scale-div">
             <div class="btn-gap">
+                ${Weapons.length > 0 ? `
                 <label for="filter-prop">Filtrer par:</label>
                 <select name="filter-prop" id="filter-prop">
                 ${Weapons.length > 0 ? `
@@ -18,6 +19,9 @@ function afficherItems(conteneurMain){
                 }
                 </select>
                 <input type="text" id="filter-value">
+                ` 
+                : ``
+                }
             </div>
             <table id="table-weapon">
                 <thead>
