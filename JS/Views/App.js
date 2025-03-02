@@ -8,9 +8,13 @@ function afficherItems(conteneurMain){
         <div id="app" class="carre f-box f-col bullseye animated-scale-div">
             <label for="filter-prop">Filtrer par:</label>
             <select name="filter-prop" id="filter-prop">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
+            ${Weapons.length > 0 ? `
+                ${Object.keys(Weapons[0]).map(prop => `
+                    <option value="${prop}">${prop}</option>
+                `).join('')}
+            `
+            : ``
+            }
             </select>
 
             <table id="table-weapon">
