@@ -6,7 +6,7 @@
         let mainContent = document.getElementById("site-main-content");
         switch(elemValue){
             case 2: mainContent.innerHTML = pageHome; 
-            initEventPourHome();
+            //initEventPourHome();
             break;
             case 3: mainContent.innerHTML = pageApropos; break;
             case 4: afficherContact(mainContent); break;
@@ -19,7 +19,7 @@
 
     function initialiserEventListeners(){
         console.log("Initialisation des events listener")
-        initEventPourHome();
+        //initEventPourHome();
         document.querySelectorAll(".nav-element").forEach(elem => {
             elem.addEventListener("click", () => {
                 console.log(elem);
@@ -29,16 +29,16 @@
     }
 
     //test changer text sur page home pour future login
-    function initEventPourHome(){
+    // function initEventPourHome(){
     
-        document.querySelector("#btn").addEventListener("click", function() {
-            document.querySelector("#message").textContent = "bonjour!";
-        });
+    //     document.querySelector("#btn").addEventListener("click", function() {
+    //         document.querySelector("#message").textContent = "bonjour!";
+    //     });
     
-        document.querySelector("#btn2").addEventListener("click", function() {
-            document.querySelector("#message2").textContent = "bonjour2!";
-        });
-    }
+    //     document.querySelector("#btn2").addEventListener("click", function() {
+    //         document.querySelector("#message2").textContent = "bonjour2!";
+    //     });
+    // }
     
     // Cet évènement se déclenche lorsque le DOM a terminé l'affichage
     document.addEventListener("DOMContentLoaded", function(){
