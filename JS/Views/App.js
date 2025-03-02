@@ -188,7 +188,7 @@ function afficherItems(conteneurMain){
         </div>
         `;
         //console.log(`Weapons.length = ${Weapons.length}`)
-        let lastID = 0;
+        let lastID = Weapons.id = 0;
         if (Weapons.length > 0){
             lastID = Weapons[Weapons.length - 1].id;  
         }
