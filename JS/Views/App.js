@@ -59,7 +59,10 @@ function afficherItems(conteneurMain){
     </div>
     `;
 
-    addEventForFilterInput();
+    if(Weapons.length > 0){
+        addEventForFilterInput();
+    }
+     
     
     function addEventForFilterInput() {
         const input = document.getElementById('filter-value');
@@ -125,6 +128,7 @@ function afficherItems(conteneurMain){
         });
     }
 
+
     Weapons.forEach((weapon, index) => {
         let weapId = weapon.id;
 
@@ -141,6 +145,10 @@ function afficherItems(conteneurMain){
             afficherFormEdit(conteneurMain, weapId);
         });
     });
+
+
+
+    
 
     document.getElementById("btn-add-weapon").addEventListener("click", () => {
         afficherFormAjout(conteneurMain);
